@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Model weights (re-downloadable)
+models/
+
+# Generated artifacts (reproducible via `make`)
+out/
+
+# HuggingFace caches
+.hf/
+data/macslu/.cache/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store

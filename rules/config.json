@@ -1,0 +1,36 @@
+{
+  "splits": [
+    "train",
+    "dev",
+    "test"
+  ],
+  "eval_splits": [
+    "dev",
+    "test"
+  ],
+  "min_tool_train_count": 30,
+  "strip_tool_prefix": true,
+  "min_slot_count": 20,
+  "free_text_ratio_threshold": 0.5,
+  "schema_param_min_ratio": 0.02,
+  "schema_param_min_count": 5,
+  "min_enum_count": 2,
+  "max_enum_size": 30,
+  "describe_enum": false,
+  "value_map_coverage_target": 0.85,
+  "tool_param_file": "tool_params.tsv",
+  "_tool_param_note": "S5.2 的参数契约表。每行一个 (tool, slot)，role ∈ {required, optional}；cut 的参数不出现在表里。fill 列是必填参数的缺省值（只允许可由工具名唯一确定的常量）。表里没有的 (tool, slot) 一律视为 cut。",
+  "_notes": {
+    "min_tool_train_count": "S2 工具粒度：train 样本数 < 此值的工具整体丢弃",
+    "strip_tool_prefix": "是否去掉 it./veh. 前缀。实测：0.6B 模型在 P1（schema 在 prompt 里）下会系统性丢掉这个前缀，造成约 46% 的工具名错误。前缀是本实验引入的命名约定，不是数据自带的。两种都跑，作为消融。",
+    "min_slot_count": "S3.1 槽位名粒度：全量出现次数 < 此值的槽位名丢弃",
+    "free_text_ratio_threshold": "S4.1 取值种数/出现次数 > 此值 → 判为自由文本，不建表",
+    "schema_param_min_ratio": "S5 工具的 schema 参数：须出现在 ≥此比例的该工具样本中",
+    "schema_param_min_count": "S5 且绝对出现次数须 ≥此值（防止小工具收录长尾参数）",
+    "min_enum_count": "S4.5 只对「会写进 enum 的槽位」（取值种数 ≤ max_enum_size）生效：enum 保留 train 中出现 ≥此值的规范值，使用更稀有值的样本丢弃。半开放/自由文本槽位不受影响。",
+    "max_enum_size": "S4.5/S5 取值种数超过此值的槽位，schema 里只声明 type 不列 enum",
+    "value_map_coverage_target": "验收：映射表在 dev+test 上的覆盖率目标。实测 86.8%——残余缺口是 25+ 个槽位上频次 ≤5 的长尾值（最大单槽 92 例），强行合并会造成错误映射，故按现状记录。",
+    "describe_enum": "是否把 enum 取值也写进参数的 description。实测（4B，dev+test 1272 条）：不含取值 16.98% Call / 69.42% Tool；含取值 15.17%/15.02% Call / 68.95%/69.03% Tool，且 P1 prompt 从 9463 涨到 11862 tok（+25%）。结论：更差且更贵，保持 false。取值由 enum 字段承载。",
+    "tool_param_file": "S5.2 参数契约。原 S5 的「覆盖率 ≥2% 且 ≥5 次」收录的是「该工具可能出现的参数并集」，而金标是「该样本实际标注的参数」——两者口径不同，导致模型照 schema 补全反被判错（播放收藏：schema 5 个参数，47/119 条金标只有 操作）。改为每工具 1–4 个参数，覆盖全部 216 → 94，P1 prompt 9445 → 5596 tok。"
+  }
+}

@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  data-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # 数据清洗只用标准库；不需要 torch / transformers
+      - name: Build cleaned data + schema
+        run: python3 -I src/clean/build.py
+      - name: Verify coverage / concentration
+        run: python3 -I src/clean/verify.py

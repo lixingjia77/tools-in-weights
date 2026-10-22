@@ -1,0 +1,87 @@
+{
+  "model": "models/Qwen3-4B",
+  "apc": true,
+  "max_tokens": 32,
+  "rows": [
+    {
+      "paradigm": "P1",
+      "concurrency": 1,
+      "wall_s": 0.379697155993199,
+      "req_s": 2.6336778777924574,
+      "out_tok_s": 84.27769208935864,
+      "in_tok_s": 14869.745298016216,
+      "in_tokens": 5646,
+      "out_tokens": 32
+    },
+    {
+      "paradigm": "P1",
+      "concurrency": 8,
+      "wall_s": 0.5490229029965121,
+      "req_s": 14.571341115892979,
+      "out_tok_s": 466.28291570857533,
+      "in_tok_s": 82273.43477561073,
+      "in_tokens": 45170,
+      "out_tokens": 256
+    },
+    {
+      "paradigm": "P1",
+      "concurrency": 32,
+      "wall_s": 1.0053742809977848,
+      "req_s": 31.828942320109448,
+      "out_tok_s": 1018.5261542435023,
+      "in_tok_s": 179738.03728165803,
+      "in_tokens": 180704,
+      "out_tokens": 1024
+    },
+    {
+      "paradigm": "P1",
+      "concurrency": 100,
+      "wall_s": 2.4606021749787033,
+      "req_s": 40.64045826541038,
+      "out_tok_s": 1300.4946644931322,
+      "in_tok_s": 229491.79096978056,
+      "in_tokens": 564688,
+      "out_tokens": 3200
+    },
+    {
+      "paradigm": "P2",
+      "concurrency": 1,
+      "wall_s": 0.3436968520109076,
+      "req_s": 2.9095407599725815,
+      "out_tok_s": 93.10530431912261,
+      "in_tok_s": 241.49188307772425,
+      "in_tokens": 83,
+      "out_tokens": 32
+    },
+    {
+      "paradigm": "P2",
+      "concurrency": 8,
+      "wall_s": 0.36810408998280764,
+      "req_s": 21.732983190634044,
+      "out_tok_s": 695.4554621002894,
+      "in_tok_s": 1809.2708506202841,
+      "in_tokens": 666,
+      "out_tokens": 256
+    },
+    {
+      "paradigm": "P2",
+      "concurrency": 32,
+      "wall_s": 0.4173771039932035,
+      "req_s": 76.6692750844356,
+      "out_tok_s": 2453.416802701939,
+      "in_tok_s": 6440.21910709259,
+      "in_tokens": 2688,
+      "out_tokens": 1024
+    },
+    {
+      "paradigm": "P2",
+      "concurrency": 100,
+      "wall_s": 0.5551540960150305,
+      "req_s": 180.1301669533076,
+      "out_tok_s": 5764.165342505843,
+      "in_tok_s": 15109.31840404344,
+      "in_tokens": 8388,
+      "out_tokens": 3200
+    }
+  ]
+}

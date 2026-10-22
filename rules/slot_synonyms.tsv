@@ -1,0 +1,10 @@
+# S3.2 槽位名同义合并
+# raw	canonical	note
+# 判据：取值域包含度 |A∩B| / min(|A|,|B|) ≥ 0.9
+# 实测只有一对达标（1.00）。其余「名字像」的组合取值域完全不重叠，不合并：
+#   位置 vs 身体位置   （座位 vs 身体部位）
+#   操作 vs __act__    （操作 vs 对话行为 request/confirm/querymore）
+#   对象功能 vs 功能    （部件功能 vs ADAS 功能）
+#   调节内容 vs __tgt__ （调节对象 vs 查询对象）
+raw	canonical	note
+车载交互位置	位置	取值域包含度 1.00

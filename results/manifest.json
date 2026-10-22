@@ -1,0 +1,188 @@
+{
+  "root": "/home/lixingjia/Documents/RemoteWorkSpace/ft-vs-sip",
+  "generator": "src/clean/build.py",
+  "steps": [
+    {
+      "step": "S1-S6 全流程",
+      "inputs": [
+        {
+          "path": "data/macslu/label/train_set.jsonl",
+          "sha256": "d1e9a63fa61ef2d5eec4ef543356fb53d653070916c5ceaf72962047f9aef681",
+          "bytes": 5494519
+        },
+        {
+          "path": "data/macslu/label/dev_set.jsonl",
+          "sha256": "02ccb2bae0fa1923fb0e3bcdd5d0c13635ac93cfd2880d8a8affd0481157efb1",
+          "bytes": 422144
+        },
+        {
+          "path": "data/macslu/label/test_set.jsonl",
+          "sha256": "1b3e8243ea9a9bb544a18b571401c4a057f0246c07d26a3e2a638890d9300572",
+          "bytes": 442493
+        },
+        {
+          "path": "rules/config.json",
+          "sha256": "80a0102038fc65105f9876fd4762772adbe76a81628c33851c3227f20fc4f14d",
+          "bytes": 2895
+        },
+        {
+          "path": "rules/descriptions.tsv",
+          "sha256": "2eeb0ddc5035281f0a98fe40a8bcc868e186025e30364bb23efb7428f5b3fac3",
+          "bytes": 8067
+        },
+        {
+          "path": "rules/drop_slots.tsv",
+          "sha256": "8070bf43b205644892063e26c3f163b7cc2f2e37f2e0af94d2591306f971ea9e",
+          "bytes": 687
+        },
+        {
+          "path": "rules/slot_synonyms.tsv",
+          "sha256": "64951515380386fafff26b7528a98ad6d0c255a55e304871888daa026c965025",
+          "bytes": 554
+        },
+        {
+          "path": "rules/tool_params.tsv",
+          "sha256": "b5455120bdac39dbafba2e7b95e171766ae26f370f5341845c06857c9d72738d",
+          "bytes": 4196
+        },
+        {
+          "path": "rules/tool_synonyms.tsv",
+          "sha256": "d6b9b77c613279e931e8d1dbef6e704b2d4f15298271553d0344c2db194616dd",
+          "bytes": 950
+        },
+        {
+          "path": "rules/value_clusters.tsv",
+          "sha256": "8a80f3b05d25abcfd69a37f2708bfd681f9b95920728bbe99dfc7fe2cae89b40",
+          "bytes": 21752
+        }
+      ],
+      "outputs": [
+        {
+          "path": "out/cleaned/train.jsonl",
+          "sha256": "8e3ea8196af2da0a2c7c2d86edbba5c25b7bc941552e2d5d87272a9cfa0e0c6c",
+          "bytes": 1066976
+        },
+        {
+          "path": "out/schema/tools.json",
+          "sha256": "54930eb77660977714a55c98b6f8cc5ecafbe4efdf115f7c7eb5ae92f91e7bed",
+          "bytes": 28821
+        },
+        {
+          "path": "out/schema/tools.tsv",
+          "sha256": "cbc575a8ccdcd3108e28032530714e69eb3e139f6c366190c766000289d4cf21",
+          "bytes": 1759
+        },
+        {
+          "path": "out/cleaned/dev.jsonl",
+          "sha256": "ee172528d368e993deca5a944b9255db452378d48a61c2d587bda69bc9470061",
+          "bytes": 101629
+        },
+        {
+          "path": "out/cleaned/test.jsonl",
+          "sha256": "c7ed9a1841ecc892f89cba9a24f4a5317dc1fdc65d0d8146aa70064a501e410d",
+          "bytes": 110096
+        }
+      ],
+      "counts": {
+        "train": {
+          "raw": 18000,
+          "s1_kept": 9197,
+          "s1_dropped": {
+            "no_intent": 5306,
+            "multi_intent": 2676,
+            "body_no_object": 821
+          },
+          "s2_kept": 8219,
+          "s2_dropped_tool_threshold": 978,
+          "s3_slot_instances": 19169,
+          "s4_merged": 4663,
+          "s4_identity": 14506,
+          "s52_args_in": 19169,
+          "s52_args_out": 13906,
+          "s52_filled": 190,
+          "s52_dropped": 226,
+          "s52_drop_reasons": {
+            "cut_args": 5295,
+            "drop_missing:操作": 124,
+            "drop_missing:poi类型": 33,
+            "drop_missing:调节内容": 28,
+            "drop_missing:终点名称": 25,
+            "drop_missing:途经点名称": 10,
+            "drop_missing:请求类型": 4,
+            "drop_missing:气象": 1,
+            "drop_missing:事件": 1
+          },
+          "s45_enum_filtered_slots": 80,
+          "s46_dropped_tool_no_eval": 0,
+          "final": 7993
+        },
+        "dev": {
+          "raw": 1391,
+          "s1_kept": 690,
+          "s1_dropped": {
+            "no_intent": 419,
+            "multi_intent": 204,
+            "body_no_object": 78
+          },
+          "s2_kept": 609,
+          "s2_dropped_tool_threshold": 81,
+          "s3_slot_instances": 1386,
+          "s4_merged": 343,
+          "s4_identity": 1043,
+          "s52_args_in": 1386,
+          "s52_args_out": 1008,
+          "s52_filled": 16,
+          "s52_dropped": 21,
+          "s52_drop_reasons": {
+            "cut_args": 384,
+            "drop_missing:操作": 13,
+            "drop_missing:终点名称": 5,
+            "drop_missing:调节内容": 2,
+            "drop_missing:poi类型": 1
+          },
+          "s45_enum_filtered_slots": 80,
+          "s46_dropped_tool_no_eval": 0,
+          "final": 588,
+          "seen": 363,
+          "unseen": 225
+        },
+        "test": {
+          "raw": 1151,
+          "s1_kept": 756,
+          "s1_dropped": {
+            "body_no_object": 70,
+            "multi_intent": 299,
+            "no_intent": 26
+          },
+          "s2_kept": 663,
+          "s2_dropped_tool_threshold": 93,
+          "s3_slot_instances": 1619,
+          "s4_merged": 395,
+          "s4_identity": 1224,
+          "s52_args_in": 1619,
+          "s52_args_out": 1134,
+          "s52_filled": 9,
+          "s52_dropped": 16,
+          "s52_drop_reasons": {
+            "cut_args": 479,
+            "drop_missing:操作": 9,
+            "drop_missing:终点名称": 3,
+            "drop_missing:poi类型": 3,
+            "drop_missing:途经点名称": 1
+          },
+          "s45_enum_filtered_slots": 80,
+          "s46_dropped_tool_no_eval": 0,
+          "final": 647,
+          "seen": 434,
+          "unseen": 213
+        }
+      },
+      "notes": [
+        "tools_kept=41",
+        "tools_total=320",
+        "config=min_tool_train_count:30, min_slot_count:20, free_text_ratio_threshold:0.5, schema_param_min_ratio:0.02, schema_param_min_count:5"
+      ]
+    }
+  ],
+  "rules_dir": "rules/"
+}

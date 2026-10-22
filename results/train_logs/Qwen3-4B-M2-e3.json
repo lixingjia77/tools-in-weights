@@ -1,0 +1,53 @@
+{
+  "model": "models/Qwen3-4B",
+  "data": "/home/lixingjia/Documents/RemoteWorkSpace/ft-vs-sip/out/prompts/train_P2_d.jsonl",
+  "mode": "lora",
+  "out": "models/Qwen3-4B-M2-e3",
+  "epochs": 3,
+  "batch": 4,
+  "grad_accum": 8,
+  "max_len": 256,
+  "lr": 0.0001,
+  "warmup": 0.03,
+  "seed": 42,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "grad_ckpt": true,
+  "log_every": 50,
+  "limit": null,
+  "n_train": 7993,
+  "tokens_per_epoch": 882689,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.23953257470513173,
+      "steps": 250,
+      "seconds": 360.6,
+      "peak_gb": 9.29
+    },
+    {
+      "epoch": 2,
+      "loss": 0.03510337473523376,
+      "steps": 501,
+      "seconds": 360.6,
+      "peak_gb": 9.29
+    },
+    {
+      "epoch": 3,
+      "loss": 0.01299975443265609,
+      "steps": 752,
+      "seconds": 359.4,
+      "peak_gb": 9.29
+    }
+  ],
+  "lora_targets": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ]
+}

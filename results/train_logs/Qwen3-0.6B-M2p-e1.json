@@ -1,0 +1,39 @@
+{
+  "model": "models/Qwen3-0.6B",
+  "data": "out/prompts/train_P1_d.jsonl",
+  "mode": "full",
+  "out": "models/Qwen3-0.6B-M2p-e1",
+  "epochs": 1,
+  "batch": 1,
+  "grad_accum": 32,
+  "max_len": 6144,
+  "lr": 2e-05,
+  "warmup": 0.03,
+  "seed": 42,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "grad_ckpt": false,
+  "log_every": 50,
+  "limit": null,
+  "n_train": 7993,
+  "tokens_per_epoch": 45347748,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.09515078838667733,
+      "steps": 250,
+      "seconds": 2703.5,
+      "peak_gb": 15.59
+    }
+  ],
+  "lora_targets": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ]
+}

@@ -1,0 +1,18 @@
+# S3.1 丢弃的槽位名
+# slot	reason
+# 另有两条规则在脚本里（config.json 控制），不在此表：
+#   - 出现次数 < min_slot_count(20) 的槽位名 → 长尾噪声
+#   - intent 槽位 → 已在 S1 用于工具面拆分
+slot	reason
+对象	已在 S1 进入工具名
+操作_concrete	取值仅 到/为/至/true/成 5 种，无语义
+sys.指代	系统标注
+sys.序列号	系统标注
+sys.页码	系统标注
+action	仅 1 条样本，误标
+object	仅 1 条样本，误标
+feature	仅 1 条样本，误标
+body	仅 1 条样本，误标
+part	仅 1 条样本，误标
+车内灯类型	取值是 对象 的子集，冗余
+车外灯类型	取值是 对象 的子集，冗余
